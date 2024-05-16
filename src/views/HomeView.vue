@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
-
+import FormComponent from '@/components/FormComponent.vue'
 import 'intersection-observer'
 </script>
 
 <template>
   <main>
+    <FormComponent
+      :isAnimationActive.sync="active"
+      :triggerMethod.sync="triggerMethod"
+      :nameForm="nameForm"
+      @some-event="toggleAnimation('')"
+    />
     <section
       class="section-1 grid grid-cols-1 md:grid-cols-2 relative z-0 bg-[#996B60]"
       @mouseover="startAnimation"
@@ -29,12 +35,13 @@ import 'intersection-observer'
           Веберете то, что подходит именно вам. Разберитесь в структуре и назначении инструментов!
         </p>
         <div class="relative">
-          <div
+          <RouterLink
+            to="/catalog"
             class="opacity-0 border border-white px-[52px] py-[19px] text-xs font-normal font-sans uppercase leading-[14px] tracking-wide transition-all hover:text-black hover:bg-white"
             :class="{ 'animate-fade-in': showButton }"
           >
             Смотреть каталог
-          </div>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -92,8 +99,11 @@ import 'intersection-observer'
             <p class="mb-[25px] text-sm leading-7">
               {{ item.desription }}
             </p>
-            <div class="px-[48px] py-[19px] bg-black text-white">
-              <a class="" href="">Записаться сейчас</a>
+            <div
+              class="px-[48px] py-[19px] bg-black text-white"
+              @click="toggleAnimation(item.name)"
+            >
+              <div class="">Записаться сейчас</div>
             </div>
           </div>
         </div>
@@ -284,6 +294,9 @@ import 'intersection-observer'
 export default defineComponent({
   data() {
     return {
+      nameForm: '',
+      triggerMethod: false,
+      active: false,
       showButton: false,
       observer: null as IntersectionObserver | null, // Инициализируем свойство как null или IntersectionObserver
       interTarget: false,
@@ -353,6 +366,9 @@ export default defineComponent({
       ]
     }
   },
+  components: {
+    FormComponent
+  },
   created() {
     // В методе created() ничего не делаем, так как IntersectionObserver должен быть инициализирован после монтирования компонента
   },
@@ -382,6 +398,12 @@ export default defineComponent({
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    toggleAnimation(name: any) {
+      // Вызываем метод verselMethod() в дочернем компоненте
+      this.active = !this.active
+      this.triggerMethod = !this.triggerMethod
+      this.nameForm = name
+    },
     startAnimation() {
       this.showButton = true
     },

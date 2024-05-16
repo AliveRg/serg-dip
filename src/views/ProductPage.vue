@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import FormComponent from '@/components/FormComponent.vue'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -14,6 +15,12 @@ import 'swiper/css/scrollbar'
 </script>
 <template>
   <div>
+    <FormComponent
+      :isAnimationActive.sync="active"
+      :triggerMethod.sync="triggerMethod"
+      :nameForm="nameForm"
+      @some-event="toggleAnimation()"
+    />
     <div class="w-full bg-[#996B60]">
       <div class="">
         <div
@@ -119,10 +126,16 @@ import 'swiper/css/scrollbar'
         <div class="font-sans mt-[60px]">
           <p class="text-[24px] text-[#4F4F4F] font-[600] mb-[10px]">Средняя: 39 700 руб.</p>
           <div class="flex gap-[20px] mb-[20px] text-[14px]">
-            <div class="px-[21px] py-[16px] bg-[#FF3535] text-white rounded-[8px]">
+            <div
+              class="px-[21px] py-[16px] bg-[#FF3535] text-white rounded-[8px]"
+              @click="toggleAnimation('Концертный прокат')"
+            >
               Концертный прокат
             </div>
-            <div class="px-[21px] py-[16px] bg-white border border-black text-black rounded-[8px]">
+            <div
+              class="px-[21px] py-[16px] bg-white border border-black text-black rounded-[8px]"
+              @click="toggleAnimation('Осмотр')"
+            >
               Осмотр
             </div>
           </div>
@@ -151,7 +164,7 @@ import 'swiper/css/scrollbar'
                   </clipPath>
                 </defs>
               </svg>
-              <p class="">Гитара отстроена в нашей мастерской.</p>
+              <p class="">Гитара настроена в нашей мастерской.</p>
             </div>
             <div class="flex items-center justify-start gap-1">
               <svg
@@ -426,17 +439,28 @@ export default defineComponent({
           price: '94 200 р.',
           type: 'гитара'
         }
-      ]
+      ],
+      nameForm: '',
+      triggerMethod: false,
+      active: false
     }
   },
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    FormComponent
   },
 
   mounted() {},
   computed: {},
-  methods: {}
+  methods: {
+    toggleAnimation(name: any) {
+      // Вызываем метод verselMethod() в дочернем компоненте
+      this.active = !this.active
+      this.triggerMethod = !this.triggerMethod
+      this.nameForm = name
+    }
+  }
 })
 </script>
 

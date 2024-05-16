@@ -38,16 +38,16 @@ import { defineComponent } from 'vue'
               class="leading-11 text-[22px] md:text-[33px] lg:text-[48px] font-[600] text-gray-800 mb-[12px] transition-all duration-700"
               :class="clide ? '' : 'opacity-0 translate-x-[3%]'"
             >
-              SEEDRA Basil Seeds for <br />
-              Indoor and Outdoor Planting
+              Освежите свой творческий потенциал с <br />
+              <span class="font-[700]"> Драм-машиной</span>
             </p>
             <p
               class="text-[11px] md:text-[13px] lg:text-base font-light leading-[28px] mb-[21px] transition-all duration-700 delay-200"
               :class="clide ? '' : 'opacity-0 -translate-x-[3%]'"
             >
-              Be sure of our quality - the freshest batches of this season. Non-GMO, Heirloom - our
-              seeds were tested and have the best germination ratings. Your easy growing experience
-              is our guarantee
+              С легкостью экспериментируйте с различными ритмами и стилями, вдохновляйтесь и
+              воплощайте свои музыкальные идеи в жизнь с Драм-машины. Погрузитесь в мир музыкального
+              творчества и откройте новые горизонты вашего звучания уже сегодня!
             </p>
             <div
               class="flex items-center justify-start gap-[17px] mb-[25px] transition-all duration-[700ms] delay-500"
@@ -66,8 +66,8 @@ import { defineComponent } from 'vue'
                     fill="#E55C5C"
                   /></svg
               ></span>
-              <p class="text-[42px] font-[600]">$12.56</p>
-              <strike class="text-[#70737C] text-[22px]">$15.56</strike>
+              <p class="text-[42px] font-[600]">71 990 р</p>
+              <strike class="text-[#70737C] text-[22px]">102 990 р</strike>
             </div>
             <div
               class="flex items-center justify-start gap-[12px] transition-all duration-[700ms] delay-700"
@@ -76,16 +76,22 @@ import { defineComponent } from 'vue'
               <div
                 class="px-[33px] py-[11px] text-black bg-white hover:text-white hover:bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
               >
-                <div class="text-[11px] md:text-[13px] lg:text-base font-medium leading-7">
-                  Add to card
-                </div>
+                <RouterLink
+                  to="/product/14"
+                  class="text-[11px] md:text-[13px] lg:text-base font-medium leading-7"
+                >
+                  Перейти к товару
+                </RouterLink>
               </div>
               <div
                 class="px-[33px] py-[11px] text-black bg-white hover:text-white hover:bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
               >
-                <div class="text-[11px] md:text-[13px] lg:text-base font-medium leading-7">
-                  Discover
-                </div>
+                <a
+                  href="#catal"
+                  class="text-[11px] md:text-[13px] lg:text-base font-medium leading-7"
+                >
+                  Посмотреть остальное
+                </a>
               </div>
             </div>
           </div>
@@ -108,7 +114,7 @@ import { defineComponent } from 'vue'
           </p>
         </div>
       </div>
-      <div class="flex items-center justify-start gap-[12px] mb-[32px]">
+      <div class="flex items-center justify-start gap-[12px] mb-[32px]" id="catal">
         <div
           @click="selectedType = 'гитара'"
           class="px-[13px] py-[19px] rounded-lg border-2 border-zinc-100 hover:border-zinc-300 hover:shadow-md justify-center items-center inline-flex"
