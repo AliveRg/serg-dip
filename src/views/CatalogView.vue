@@ -74,7 +74,7 @@ import { defineComponent } from 'vue'
               :class="clide ? '' : 'opacity-0 translate-y-[10%]'"
             >
               <div
-                class="px-[33px] py-[11px] text-black bg-white hover:text-white hover:bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
+                class="px-[33px] py-[11px] text-black bg-white hover:text-white :bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
               >
                 <RouterLink
                   to="/product/14"
@@ -84,7 +84,7 @@ import { defineComponent } from 'vue'
                 </RouterLink>
               </div>
               <div
-                class="px-[33px] py-[11px] text-black bg-white hover:text-white hover:bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
+                class="px-[33px] py-[11px] text-black bg-white hover:text-white :bg-black rounded-lg justify-start items-start gap-2.5 inline-flex transition-all duration-[200ms]"
               >
                 <a
                   href="#catal"
@@ -107,9 +107,9 @@ import { defineComponent } from 'vue'
         <p class="text-gray-800 text-4xl font-semibold">Каталог продуктов</p>
         <div
           @click="showAllProducts"
-          class="px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex"
+          class="px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex hover:bg-green-500 hover:border-green-500 group transition-all duration-300"
         >
-          <p class="text-green-600 text-base font-medium leading-7">
+          <p class="text-green-600 text-base font-medium leading-7 group-hover:text-white">
             Посмотреть все ({{ products.length }})
           </p>
         </div>
@@ -234,7 +234,7 @@ import { defineComponent } from 'vue'
         <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full font-sans">
           <div class="flex flex-col gap-4 md:gap-8 md:w-2/3">
             <div
-              class="bg-[#EFEFEF] w-full h-[300px] rounded-[12px] pl-[30px] flex items-center justify-between overflow-hidden gap-[10px]"
+              class="bg-[#EFEFEF] w-full py-[10px] md:h-[300px] rounded-[12px] pl-[30px] flex items-center justify-between overflow-hidden gap-[10px]"
             >
               <div class="">
                 <div class="flex items-center gap-[8px] font-semibold mb-[8px]">
@@ -253,17 +253,21 @@ import { defineComponent } from 'vue'
                   <p class="text-[14px] text-[#70737C]">12.09.2021</p>
                 </div>
                 <p class="text-[24px] font-[600] mb-[4px]">
-                  How to plant spinach correctly in winter
+                  Революция в музыкальной индустрии: запуск новой платформы для онлайн-коллабораций!
                 </p>
 
                 <p class="text-[14px] text-[#70737C] mb-[14px]">
-                  In most areas, successive sowing can be done from early spring until early winter,
-                  but more often during hotter months...
+                  Новая платформа предлагает музыкантам со всего мира уникальную возможность
+                  сотрудничать над музыкальными проектами в режиме реального времени...
                 </p>
                 <div
-                  class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex"
+                  class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 hover:bg-green-500 hover:border-green-500 group transition-all duration-300 inline-flex"
                 >
-                  <div class="text-green-600 text-base font-medium leading-7">Read</div>
+                  <div
+                    class="text-green-600 text-base font-medium leading-7 group-hover:text-white"
+                  >
+                    Read
+                  </div>
                 </div>
               </div>
               <div class="img-block-1"><img src="@/assets/blog1.png" alt="" /></div>
@@ -290,12 +294,16 @@ import { defineComponent } from 'vue'
                     <p class="text-[14px] text-[#70737C]">12.09.2021</p>
                   </div>
                   <p class="text-[24px] font-[600] mb-[4px]">
-                    How to plant spinach correctly in winter
+                    Запуск интеллектуального плагина для создания композиций!
                   </p>
                   <div
-                    class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex"
+                    class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex hover:bg-green-500 hover:border-green-500 group transition-all duration-300"
                   >
-                    <div class="text-green-600 text-base font-medium leading-7">Read</div>
+                    <div
+                      class="text-green-600 text-base font-medium leading-7 group-hover:text-white"
+                    >
+                      Read
+                    </div>
                   </div>
                 </div>
               </div>
@@ -320,12 +328,16 @@ import { defineComponent } from 'vue'
                     <p class="text-[14px] text-[#70737C]">12.09.2021</p>
                   </div>
                   <p class="text-[24px] font-[600] mb-[4px]">
-                    How to plant spinach correctly in winter
+                    Представление нового формата звукозаписи в высоком разрешении!
                   </p>
                   <div
-                    class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex"
+                    class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex hover:bg-green-500 hover:border-green-500 group transition-all duration-300"
                   >
-                    <div class="text-green-600 text-base font-medium leading-7">Read</div>
+                    <div
+                      class="text-green-600 text-base font-medium leading-7 group-hover:text-white"
+                    >
+                      Read
+                    </div>
                   </div>
                 </div>
               </div>
@@ -354,16 +366,18 @@ import { defineComponent } from 'vue'
                 <p class="text-[14px] text-[#70737C]">12.09.2021</p>
               </div>
               <p class="text-[24px] font-[600] mb-[4px]">
-                How to plant spinach correctly in winter
+                Революционная технология виртуальной реальности для концертного просмотра!
               </p>
               <p class="text-[14px] text-[#70737C] mb-[14px]">
-                In most areas, successive sowing can be done from early spring until early winter,
-                but more often during hotter months...
+                Новая технология VR позволяет зрителям погрузиться в музыкальные концерты и
+                фестивали, не выходя из дома...
               </p>
               <div
-                class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex"
+                class="w-[106px] h-[51px] px-[33px] py-[11px] bg-white rounded-lg border border-zinc-100 justify-start items-start gap-2.5 inline-flex hover:bg-green-500 hover:border-green-500 group transition-all duration-300"
               >
-                <div class="text-green-600 text-base font-medium leading-7">Read</div>
+                <div class="text-green-600 text-base font-medium leading-7 group-hover:text-white">
+                  Read
+                </div>
               </div>
             </div>
           </div>

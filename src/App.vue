@@ -69,17 +69,17 @@ import { RouterLink, RouterView } from 'vue-router'
         <div
           class="bg-black/70 md:bg-black px-[15px] py-[10px] md:px-[80px] md:py-[40px] text-center flex flex-col items-center justify-start gap-[14px]"
         >
-          <p class="text-[32px] md:text-[55px] font-bold leading-[60px]">Set the mood</p>
+          <p class="text-[32px] md:text-[55px] font-bold leading-[60px]">Улучши качество</p>
           <p class="text-sm md:text-base">
-            Curated playlists from Woody + Helena, plus some of our <br />
-            friends and favorite brands.
+            Мы не собираем данные о пользателе в данном опросе, только статистику, ответь на один
+            вопрос)
           </p>
-          <div class="px-[58px] py-[13px] bg-white text-black">Spotify</div>
+          <div class="px-[58px] py-[13px] bg-white text-black" @click="focusInput">Ответить</div>
         </div>
         <div
           class="bg-black/70 md:bg-black w-full flex flex-col gap-[15px] items-center justify-start py-[28px]"
         >
-          <p>Follow us, share us, drink Ha(us)</p>
+          <p>Подпишись на наши соцсети</p>
           <div class="flex gap-[21px]">
             <p class="linkP">Instagram</p>
             <p class="linkP">Twitter</p>
@@ -90,13 +90,14 @@ import { RouterLink, RouterView } from 'vue-router'
       <div
         class="bg-black/70 relative z-30 md:bg-black md:w-[40%] px-[15px] py-[10px] md:px-[80px] md:py-[40px] mx-auto text-center flex flex-col items-center justify-start"
       >
-        <p class="text-[29px] mb-[22px]">Are you 21 or older?</p>
-        <p class="text-lg mb-[31px]">You must be of legal drinking age to purchase Haus.</p>
+        <p class="text-[29px] mb-[22px]">Ты старше 21 года?</p>
+        <p class="text-lg mb-[31px]">Просим давать корректную информацию</p>
         <input
+          ref="inputField"
+          v-model="inputText"
           class="mb-[35px] bg-transparent border border-white px-[20px] py-[10px]"
           type="text"
         />
-        <p class="">No, I’m not of drinking age</p>
       </div>
     </section>
 
@@ -118,7 +119,8 @@ export default {
   data() {
     return {
       banner: true,
-      stick: false
+      stick: false,
+      inputText: ''
     }
   },
 
@@ -134,6 +136,13 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    focusInput() {
+      // Получаем ссылку на поле ввода по его референции
+      const inputField = this.$refs.inputField
+
+      // Фокусируемся на поле ввода
+      inputField.focus()
+    },
     moveBackground(event: any) {
       // const image = this.$refs.image
       // const imageRect = image.getBoundingClientRect()
